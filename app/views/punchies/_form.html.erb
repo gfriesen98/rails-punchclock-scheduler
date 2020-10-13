@@ -1,0 +1,37 @@
+<%= form_with(model: punchy, local: true) do |form| %>
+  <% if punchy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(punchy.errors.count, "error") %> prohibited this punchy from being saved:</h2>
+
+      <ul>
+        <% punchy.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timePunchIn %>
+    <%= form.datetime_select :timePunchIn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timePunchOut %>
+    <%= form.datetime_select :timePunchOut %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

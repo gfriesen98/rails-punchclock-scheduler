@@ -1,0 +1,14 @@
+<% if current_user %>
+  <% if current_user.position == 'manager' %> 
+    <h1>New User</h1>
+
+    <%= render 'form', user: @user %>
+    <%= link_to 'Back', users_path %>
+  <% else %>
+    <%= link_to 'Back', root_path %>
+    <h1>Your current access role prohibits you from viewing content on this page</h1>
+  <% end %>
+<% else %>
+  <%= link_to 'Back', root_path %>
+  <h1>Your current access role prohibits you from viewing content on this page</h1>
+<% end %>

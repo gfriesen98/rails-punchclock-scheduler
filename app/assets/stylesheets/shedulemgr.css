@@ -1,0 +1,14 @@
+.manager-content{
+    padding: 2%;
+    overflow-y: visible;
+}
+
+.endtime{
+    margin-left: 271px;
+    margin-bottom: 10px;
+}
+
+.form-schedule{
+    padding: 2%;
+    border: 1px solid #ddd;
+}

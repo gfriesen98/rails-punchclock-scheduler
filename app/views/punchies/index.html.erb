@@ -1,0 +1,51 @@
+<%= render 'shared/header' %>
+<%= stylesheet_link_tag "punches" %>
+<%= javascript_pack_tag "time" %>
+<div id="punchesbody">
+<% if current_user %>
+    <% if current_user.position == 'manager' %>
+            <h1>Punches for <%= Date.today.strftime("%B")%>, <%= Date.today.strftime("%Y")%></h1>
+            <table class='punches-table'>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Time Punched In</th>
+                    <th>Time Punched Out</th>
+                    <th>Note</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @punchies.each do |p| %>
+                <% if p.timePunchIn.strftime("%Y-%m") == Date.today.strftime("%Y-%m")%>
+                    <tr>
+                        <td><%= p.name %></td>
+                        <td><%= p.user_id %></td>
+                        <td><%= p.timePunchIn.strftime("%Y-%m-%d @ %-l:%M%P") %></td>
+                        <td><%= p.timePunchOut.strftime("%Y-%m-%d @ %-l:%M%P") %></td>
+                        <% if p.status != "Finished" || p.status != "Started" %>
+                            <td id="early"><%= p.status %></td>
+                        <% end %>
+                    </tr>
+                <% end %>
+                <% end %>
+                </tbody>
+            </table>
+    <% elsif current_user.position == 'punchclock' %>
+        <div class="alert"><%= flash[:error] %></div>
+        <div class="alert"><%= flash[:out] %></div>
+        <div class="punchicon">
+            <button data-micromodal-trigger="modal-1">
+                <%= image_tag "clock.png" %>
+            </button>
+            <p>Check Punch</p>
+        </div>
+        </div>
+        <div class="footer">
+            <h1 id='clock'></h1>
+            <h2>Welcome to my Rails Punch Clock!</h2>
+            <p>Please LOG IN as your user to view your schedule!</p>
+        </div>
+        <%= render 'shared/punchInModal', punch: @punch %>
+    <% end %>
+<% end %>

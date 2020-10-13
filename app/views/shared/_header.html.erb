@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag "navbar" %>
+
+<% if current_user != nil %>
+
+  <div class="topnav">
+    <% if current_user.position == 'manager' %>
+      <a href="/users/<%= current_user.id %>" class="active">Home</a>
+      <%= link_to 'Schedule Manager', shifts_path %>
+      <%= link_to "Staff Accounts", users_path %>
+      <%= link_to "View Punches", punchies_path %>
+      <a id='user-notif'>Logged in as <%= current_user.name %></a>
+      <%= link_to 'Log Out', logout_path, class: "logout" %>
+    <% elsif current_user.position != 'punchclock' %>
+      <a id='user-notif'>Logged in as <%= current_user.name %></a>
+      <%= link_to 'Log Out', logout_path, class: "logout" %>
+    <% else %>
+      <a id='user-notif'>Logged in as <%= current_user.name %></a>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div class="topnav">
+    <a id='user-notif-home'>Welcome!</a>
+  </div>
+
+<% end %>

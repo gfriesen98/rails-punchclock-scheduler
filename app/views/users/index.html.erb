@@ -1,0 +1,43 @@
+<%= render 'shared/header' %>
+<%= stylesheet_link_tag "show" %>
+<% if current_user %>
+<% if current_user.position == 'manager' %>
+
+<div id='ubody'>
+<h1>Users</h1>
+<table class='user-table'>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.position %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Remove '+user.name+'?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="ulink">
+  <%= link_to 'New User', new_user_path %>
+</div>
+</div>
+<div class="uform">
+  <h2>New User</h2>
+  <%= render 'form', user: @user%>
+</div>
+<br>
+<% else %>
+<h1>Your current access role prohibits you from viewing content on this page</h1>
+<% end %>
+<% end %>

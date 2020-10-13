@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'login' %>
+<%= render 'shared/header' %>
+<div class='content'>
+  <h2>Login to Staff Scheduler</h2>
+  <%= form_tag sessions_path do |form| %>
+    <div class=”field”>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>  <div class=”field”>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>  <div class=”actions”>
+      <%= submit_tag "Login" %>
+    </div>
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+  <% end %>
+</div>

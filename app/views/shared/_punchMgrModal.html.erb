@@ -1,0 +1,19 @@
+<div class="modal micromodal-slide" id="modal-3" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-1-title">Punch In</h2>
+        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+      </header>
+      <%= form_with(model: punch, local: true) do |form| %>
+        <div class="modal__content" id="modal-1-content">
+          <%= form.label :user_id %>
+          <%= form.text_field :user_id %>
+        </div>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

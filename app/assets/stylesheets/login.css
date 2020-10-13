@@ -1,0 +1,16 @@
+.content{
+    border: 1px solid #333;
+    border-radius: 2%;
+    padding: 5%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+
+.alert{
+    margin-top: 10px;
+    color: red;
+}

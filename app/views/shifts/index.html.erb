@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag 'shedulemgr' %>
+<%= render 'shared/header' %>
+<% if current_user %>
+
+  <% if current_user.position == 'manager' %>
+
+  <div class="manager-content">
+
+    <%= month_calendar events: @shifts do |date, shifts| %>
+      
+      <%= date.day %>
+
+      <% shifts.each do |shift| %>
+        <div>
+          <%= link_to '[x]', shift_path(shift), method: :delete %> <%= shift.name %>: <%= shift.start_time.strftime("%-l:%M%P") %> - <%= shift.end_time.strftime("%-l:%M%P") %><br/>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+    <br>
+    <% if flash[:success] %>
+      <p class='notice'><%= flash[:success] %></p>
+    <% end %>
+    <%= render 'form', shift: @shift %>
+  
+  <% else %>
+    <h1>Your current access role prohibits you from viewing content on this page</h1>
+  <% end %>
+<% else %>
+  <h1>Your current access role prohibits you from viewing content on this page</h1>
+<% end %>

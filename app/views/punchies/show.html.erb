@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @punchy.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @punchy.name %>
+</p>
+
+<p>
+  <strong>Timepunchin:</strong>
+  <%= @punchy.timePunchIn %>
+</p>
+
+<p>
+  <strong>Timepunchout:</strong>
+  <%= @punchy.timePunchOut %>
+</p>
+
+<%= link_to 'Edit', edit_punchy_path(@punchy) %> |
+<%= link_to 'Back', punchies_path %>

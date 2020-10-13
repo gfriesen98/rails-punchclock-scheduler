@@ -1,0 +1,71 @@
+.cal{
+    padding: 2%;
+}
+
+.login-prompt{
+    padding-left: 2%;
+    font-style: italic;
+}
+
+#ubody{
+    /* padding-left: 2%; */
+        /* padding-left: 2%; */
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: max-content;
+}
+
+.uform{
+    padding: 18px;
+    position: fixed;
+    left: 20%;
+    top: 21%;
+    border: 1px solid #333;
+    border-radius: 2%;
+}
+
+.uform h2{
+    text-align: center;
+}
+
+.ulink{
+    display: none;
+}
+.user-table {
+    border: solid 1px #333;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.user-table thead th {
+    background-color: #333;
+    border: solid 1px #333;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+.user-table tbody td {
+    border: solid 1px #333;
+    color: black;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+@media only screen and (max-width: 1024px){
+
+    #ubody{
+        margin-top: 10%;
+    }
+
+    .ulink{
+        display: block;
+    }
+
+    .uform{
+        display: none;
+    }
+}

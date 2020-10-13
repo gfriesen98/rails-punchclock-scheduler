@@ -1,0 +1,2 @@
+class Punchy < ApplicationRecord
+end
